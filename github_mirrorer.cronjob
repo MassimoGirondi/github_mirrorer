@@ -1,0 +1,3 @@
+@daily cd / && /get_repos.py | tee /mirrorer.log
+0 */6 * * * cd / && /mirror_repos.sh |tee /mirrorer.log 2>&1
+

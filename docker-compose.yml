@@ -1,0 +1,13 @@
+---
+version: "3.1"
+services:
+  github_mirrorer:
+    build:
+      context: .
+    image: github_mirrorer
+    container_name: github_mirrorer
+    hostname: github_mirrorer
+    volumes:
+      - ./repos:/repos
+      - ./github_mirrorer.privkey:/root/.ssh/id_rsa
+      - ./SECRET:/SECRET
