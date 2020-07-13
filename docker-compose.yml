@@ -4,6 +4,7 @@ services:
   github_mirrorer:
     build:
       context: .
+      dockerfile: docker_files/Dockerfile
     image: github_mirrorer
     container_name: github_mirrorer
     hostname: github_mirrorer
@@ -11,3 +12,7 @@ services:
       - ./repos:/repos
       - ./github_mirrorer.privkey:/root/.ssh/id_rsa
       - ./SECRET:/SECRET
+    ports:
+      - 8080:80
+    environment:
+      - UPDATE_ON_START=0
