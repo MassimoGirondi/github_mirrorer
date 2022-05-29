@@ -8,7 +8,6 @@ cron
 
 cd /repos
 cd `find -iname HEAD | head -n 1 | sed -e 's/HEAD//'`
-git instaweb --port=80 
 
 tail -f /var/log/cron.log
 

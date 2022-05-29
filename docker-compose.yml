@@ -2,17 +2,21 @@
 version: "3.1"
 services:
   github_mirrorer:
-    build:
-      context: .
-      dockerfile: docker_files/Dockerfile
-    image: github_mirrorer
+    image: ghcr.io/MassimoGirondi/github_mirrorer:latest
     container_name: github_mirrorer
     hostname: github_mirrorer
     volumes:
       - ./repos:/repos
-      - ./github_mirrorer.privkey:/root/.ssh/id_rsa
+      - ./github_mirrorer:/root/.ssh/id_rsa
       - ./SECRET:/SECRET
-    ports:
-      - 8080:80
     environment:
       - UPDATE_ON_START=0
+
+  cgit:
+    image: clearlinux/cgit
+    ports:
+      - "8080:80"
+    depends_on:
+      - github_mirrorer
+    volumes:
+      - ./repos:/var/www/cgit/repos:ro
