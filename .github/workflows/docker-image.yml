@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file docker_files/Dockerfile --tag ghcr.io/MassimoGirondi/github_mirrorer:latest
+      run: docker build . --file docker_files/Dockerfile --tag ghcr.io/massimogirondi/github_mirrorer:latest
