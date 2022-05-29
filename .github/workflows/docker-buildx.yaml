@@ -35,7 +35,7 @@ jobs:
         with:
           builder: ${{ steps.docker_buildx.outputs.name }}
           context: .
-          file: ./docker_file/Dockerfile
+          file: ./docker_files/Dockerfile
           platforms: linux/amd64,linux/arm,linux/arm64
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/master' }}
