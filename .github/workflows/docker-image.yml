@@ -24,6 +24,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context:  .
+          file: ./docker_files/Dockerfile
           # Note: tags has to be all lower-case
           tags: |
             ghcr.io/massimogirondi/github_mirrorer:latest
