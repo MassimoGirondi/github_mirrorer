@@ -38,8 +38,8 @@ You can automatize the scripts with crontab. For example, to have a backup every
 A docker version is provided to run everything in a standalone container.
 
 * Create the `SECRET` file as above
-* Copy (or better, generate) a SSH key and copy the private one in this directory. It must be named `github_mirrorer.privkey`.
-* `docker-compose build` will generate the container image
+* Copy (or better, generate with `ssh-keygen -f github_mirrorer`) a SSH key and copy the private one in this directory.
+* `docker-compose build` will generate the container image (if you don't want to pull mine :P)
 * `docker-compose up` will start the container
 
 The file `github.pubkey` contains the public key of GitHub published [here](https://docs.github.com/en/github/authenticating-to-github/githubs-ssh-key-fingerprints). This is needed to verify that the client is talking with the legitimate GitHub server.
