@@ -41,6 +41,7 @@ jobs:
           push: ${{ github.ref == 'refs/heads/master' }}
           tags: |
             ghcr.io/massimogirondi/github_mirrorer:latest
+            ghcr.io/massimogirondi/github_mirrorer:${GITHUB_SHA::8}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
