@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Add SHORT_SHA env property with commit short sha
-        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+          #- name: Add SHORT_SHA env property with commit short sha
+          #run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
 
 
       - name: Login to Github Packages
@@ -44,7 +44,9 @@ jobs:
           push: ${{ github.ref == 'refs/heads/master' }}
           tags: |
             ghcr.io/massimogirondi/github_mirrorer:latest
-            ghcr.io/massimogirondi/github_mirrorer:${SHORT_SHA}
+
+          #  ghcr.io/massimogirondi/github_mirrorer:${SHORT_SHA}
+          # TODO FOR LATER....
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
